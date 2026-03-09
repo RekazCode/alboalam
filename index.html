@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة البوعلام لصناعة الأثاث | ALBOALAM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* المتغيرات (الألوان والخطوط) */
+        :root {
+            --primary-color: #de0000; /* أحمر مطابق للشعار */
+            --primary-dark: #b50000;
+            --primary-light: #ff2a2a;
+            --dark-color: #1a1a1a; /* أسود فحمي */
+            --light-bg: #fdf5f5; /* أبيض مع لمسة وردية خفيفة */
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+            --font-main: 'Cairo', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* الإعدادات الأساسية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* شريط التنقل (Header) */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* القسم الرئيسي (Hero Section) */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.65), rgba(26, 26, 26, 0.65)), url('1.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            border: 2px solid var(--primary-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* العناوين المشتركة للأقسام */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* نبذة عن الشركة (About) */
+        .about-inner {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary-color);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        /* الرؤية والأهداف (Vision & Goals) */
+        .vision-section {
+            background-color: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        /* الفروع وأرقام التواصل (Branches & Contacts) */
+        .branches-section {
+            background-color: var(--dark-color);
+            color: var(--white);
+        }
+
+        .branches-section .section-title h2 {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-box {
+            background-color: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .contact-box:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(222, 0, 0, 0.1);
+        }
+
+        .contact-box h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-box p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .phone-number {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+            direction: ltr; /* للحفاظ على تنسيق الأرقام */
+            display: inline-block;
+        }
+
+        /* التذييل (Footer) */
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        footer span {
+            color: var(--primary-color);
+        }
+
+        /* التصميم المتجاوب (Responsive) */
+        @media (max-width: 992px) {
+            .about-inner {
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* يمكن إضافة قائمة هامبرغر لاحقاً */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo.png" alt="شعار شركة البوعلام">
+                    شركة <span>البوعلام</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">نبذة عنا</a></li>
+                    <li><a href="#vision">الرؤية والأهداف</a></li>
+                    <li><a href="#branches">فروعنا والتواصل</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>أثاث يصنع <span>الفارق</span> في منزلك</h1>
+                <p>اكتشف أرقى التشكيلات العصرية والكلاسيكية التي تعكس ذوقك الرفيع، من مصانع البوعلام مباشرة إلى منزلك.</p>
+                <a href="#branches" class="btn">تواصل معنا الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نبذة عن الشركة -->
+    <section id="about" class="container">
+        <div class="section-title">
+            <h2>نبذة عن الشركة</h2>
+        </div>
+        <div class="about-inner">
+            <div class="about-text">
+                <h3>تاريخ من الحرفية والإتقان</h3>
+                <p>تعتبر شركة <strong>البوعلام لصناعة الأثاث (ALBOALAM COMPANY)</strong> من الشركات الرائدة في مجال تصميم وصناعة الأثاث الفاخر والمودرن.</p>
+                <p>نحن نؤمن بأن الأثاث ليس مجرد قطع خشبية، بل هو روح المكان وواجهة المنزل. لذلك، نحرص في مصانعنا على استخدام أجود أنواع المواد الخام وتطبيق أحدث تقنيات التصنيع، لتقديم قطع أثاث تجمع بين المتانة المطلقة والتصميم الاستثنائي الذي يناسب كافة الأذواق والاحتياجات.</p>
+            </div>
+            <div class="about-image">
+                <img src="1.jpg" alt="أثاث شركة البوعلام">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الرؤية والأهداف -->
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>رؤيتنا وأهدافنا</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <h3>الرؤيــــة</h3>
+                    <p>أن نكون العلامة التجارية الأولى والخيار الأمثل في عالم صناعة الأثاث محلياً وإقليمياً، من خلال تقديم تصاميم تدمج بين الأصالة والمعاصرة وتلبي تطلعات عملائنا لتجهيز منازل أحلامهم.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>الأهـــداف</h3>
+                    <p>نسعى دائماً لتطوير خطوط الإنتاج، والالتزام بأعلى معايير الجودة العالمية، وتقديم أسعار تنافسية. هدفنا الأسمى هو تحقيق الرضا التام لعملائنا وبناء علاقة ثقة تدوم طويلاً.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💎</div>
+                    <h3>القيـــم</h3>
+                    <p>نرتكز في عملنا على الجودة، الابتكار، المصداقية، والاهتمام بأدق التفاصيل. فريقنا الشغوف يعمل باستمرار لتحويل الأفكار المبدعة إلى واقع ملموس في بيتك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفروع والتواصل -->
+    <section id="branches" class="branches-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>فروعنا وخدمات الزبائن</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- فرع مصراتة -->
+                <div class="contact-box">
+                    <h4>📍 فرع مصراتة</h4>
+                    <p>الدائري الثالث</p>
+                    <span class="phone-number">091 860 0300</span>
+                </div>
+
+                <!-- فرع زليتن -->
+                <div class="contact-box">
+                    <h4>📍 فرع زليتن</h4>
+                    <p>طريق المثلث</p>
+                    <span class="phone-number">091 860 0200</span>
+                </div>
+
+                <!-- فرع طرابلس -->
+                <div class="contact-box">
+                    <h4>📍 فرع طرابلس</h4>
+                    <p>قرقارش</p>
+                    <span class="phone-number">091 860 0400</span>
+                </div>
+
+                <!-- خدمات الزبائن -->
+                <div class="contact-box">
+                    <h4>🎧 خدمات الزبائن</h4>
+                    <p>نسعد بالرد على استفساراتكم</p>
+                    <span class="phone-number">091 760 0200</span><br>
+                    <span class="phone-number">091 760 0300</span>
+                </div>
+
+                <!-- قسم الاكسسوارات -->
+                <div class="contact-box">
+                    <h4>🛋️ قسم الإكسسوارات</h4>
+                    <p>أرقى المكملات لمنزلك</p>
+                    <span class="phone-number">091 560 0200</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <img src="logo.png" alt="شعار البوعلام" style="height: 50px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+            <p>جميع الحقوق محفوظة &copy; 2026 لـ <span>شركة البوعلام لصناعة الأثاث (ALBOALAM COMPANY)</span>.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
